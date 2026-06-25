@@ -1,0 +1,5 @@
+Expressions versus statements.
+
+Here is a core distinction in Java's grammar. An expression produces a value. The arithmetic one plus two is an expression. A method call like name dot length is an expression. The ternary operator, condition question mark a colon b, is an expression. A statement, on the other hand, performs an action and does not produce a value. A variable declaration like int x equals five is a statement. An assignment is a statement. An if block is a statement. A while loop is a statement.
+
+This is the opposite of Scala, where if, while, and for are themselves expressions that return values. In Java they are statements, and they cannot appear on the right hand side of an assignment. The one place Java did add a real expression form for control flow is the modern switch expression, introduced in Java fourteen. A switch expression produces a value, so you can assign its result to a variable.

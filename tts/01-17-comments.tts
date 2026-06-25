@@ -1,0 +1,3 @@
+Comments.
+
+Java's comments follow the conventions you know from C and Scala. Two forward slashes start a single line comment that runs to the end of the line. Slash star starts a block comment that runs until the matching star slash. There is also a special form, slash star star, which begins a javadoc comment. Javadoc comments document public application programming interfaces, and tools like javadoc turn them into HTML reference documentation.

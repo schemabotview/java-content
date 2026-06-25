@@ -1,0 +1,3 @@
+Hello, Maven.
+
+For a real project, Maven gives you a directory layout, dependency management, and a test runner. You will meet Maven properly in notebook seven. For now, the one command scaffold is enough. Type m v n archetype generate, with a group identifier, an artifact identifier, the quickstart archetype identifier, and interactive mode false. That creates a directory with the standard Maven layout. There is a p o m dot x m l file at the root that holds your project configuration. The src slash main slash java subdirectory holds your production code. The src slash test slash java subdirectory holds your tests. To compile and run the generated app, type m v n compile exec colon java, with the main class system property pointing at the generated class.

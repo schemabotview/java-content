@@ -1,0 +1,5 @@
+Installing Java.
+
+The recommended distribution is Eclipse Temurin, a free production grade build of OpenJDK maintained by the Adoptium project. On macOS you install it with brew install dash dash cask temurin. While you are at it, install jbang, which is a single file Java script runner, and Maven and Gradle, which are the two dominant multi file build tools. After installation, open a new terminal so the updated path takes effect.
+
+Then verify the install. Type java dash dash version, and you should see openjdk twenty one point something. Type javac dash dash version to confirm the compiler is on your path. Type jshell dash dash version to confirm the interactive shell, which ships with the java development kit. Type jbang dash dash version and m v n dash dash version to confirm the rest.

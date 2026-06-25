@@ -1,0 +1,5 @@
+Methods.
+
+A method is a named reusable block of code that lives inside a class. Every Java method declares its modifiers, its return type, its name, its parameter list in parentheses, and its body in braces. Methods marked static belong to the class itself rather than to an instance, and you call them on the class name. Methods without the static keyword belong to instances, and you call them on a variable holding an instance.
+
+Java supports method overloading. Multiple methods can share the same name as long as their parameter lists differ. The compiler picks the right one at the call site based on the argument types. The keyword void marks a method that returns nothing. Unlike Scala's Unit, void is not a real type. It is a syntactic marker. You cannot declare a variable of type void.

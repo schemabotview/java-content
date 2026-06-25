@@ -1,0 +1,162 @@
+{
+  "concept": "Java",
+  "design": "DESIGN.md",
+  "scenes": [
+    { "id": "java-jvm",     "title": "Java on the JVM",  "status": "built" },
+    { "id": "java-anatomy", "title": "Java — Anatomy",    "status": "built" }
+  ],
+  "presentations": [
+    {
+      "id": "01-java-essentials",
+      "title": "Java Essentials",
+      "notebook": "notebooks/01-java-essentials.ipynb",
+      "defaultScene": "java-anatomy",
+      "sections": [
+        { "heading": "What is Java?",                       "scene": "java-jvm",     "spine": true,  "role": "hook", "audio": "audio/01-01-what-is-java.wav" },
+        { "heading": "Why Java in 2026?",                   "scene": "java-jvm",     "spine": true,  "highlight": ["j-classloader-subsystem", "j-exec-engine"], "focus": ["j-classloader-subsystem", "j-exec-engine"], "audio": "audio/01-02-why-java-in-2026.wav" },
+        { "heading": "Modern Java, not 1998 Java",          "scene": "java-anatomy", "spine": true,  "highlight": ["ja-record", "ja-sealed", "ja-type-var"], "focus": ["ja-type"], "audio": "audio/01-03-modern-java.wav" },
+        { "heading": "The JVM context",                     "scene": "java-jvm",     "spine": true,  "highlight": ["j-source-code", "javac", "j-class-file", "j-interpreter", "j-jit-compiler", "j-gc"], "focus": ["j-top", "j-bottom"], "audio": "audio/01-04-jvm-context.wav" },
+        { "heading": "Installing Java",                     "scene": "java-jvm",     "spine": false, "highlight": ["j-source-code", "javac"], "focus": ["j-pipeline"], "audio": "audio/01-05-installing-java.wav" },
+        { "heading": "Three ways to run Java",              "scene": "java-jvm",     "spine": false, "highlight": ["javac"], "focus": ["j-pipeline"], "audio": "audio/01-06-three-ways-to-run-java.wav" },
+        { "heading": "Hello, jshell",                       "scene": "java-jvm",     "spine": false, "highlight": ["j-interpreter"], "focus": ["j-exec-engine"], "audio": "audio/01-07-hello-jshell.wav" },
+        { "heading": "Hello, jbang",                        "scene": "java-jvm",     "spine": false, "highlight": ["j-source-code", "javac", "j-class-file"], "focus": ["j-pipeline"], "audio": "audio/01-08-hello-jbang.wav" },
+        { "heading": "Hello, Maven",                        "scene": "java-jvm",     "spine": false, "highlight": ["j-class-file"], "focus": ["j-pipeline"], "audio": "audio/01-09-hello-maven.wav" },
+        { "heading": "Values, types and the type system",  "scene": "java-anatomy", "spine": true,  "highlight": ["ja-type", "ja-primitive", "ja-value"], "focus": ["ja-init-row"], "audio": "audio/01-10-values-types-type-system.wav" },
+        { "heading": "`var` and local type inference",      "scene": "java-anatomy", "spine": true,  "highlight": ["ja-type-var"], "focus": ["ja-type"], "audio": "audio/01-11-var-type-inference.wav" },
+        { "heading": "Expressions vs statements",          "scene": "java-anatomy", "spine": true,  "highlight": ["ja-ctrl-switch", "ja-value"], "focus": ["ja-verbs"], "audio": "audio/01-12-expressions-vs-statements.wav" },
+        { "heading": "Operators",                          "scene": "java-anatomy", "spine": false, "highlight": ["ja-value-primitive"], "focus": ["ja-init-row"], "audio": "audio/01-13-operators.wav" },
+        { "heading": "Control flow statements",            "scene": "java-anatomy", "spine": true,  "highlight": ["ja-control", "ja-loops", "ja-pattern"], "focus": ["ja-verbs"], "audio": "audio/01-14-control-flow.wav" },
+        { "heading": "Methods",                            "scene": "java-anatomy", "spine": true,  "highlight": ["ja-methods"], "focus": ["ja-verbs"], "audio": "audio/01-15-methods.wav" },
+        { "heading": "Strings and text blocks",            "scene": "java-anatomy", "spine": false, "highlight": ["ja-value-primitive"], "focus": ["ja-value"], "audio": "audio/01-16-strings-text-blocks.wav" },
+        { "heading": "Comments",                           "scene": "java-anatomy", "spine": false, "audio": "audio/01-17-comments.wav" }
+      ]
+    },
+    {
+      "id": "02-oop-and-modern-types",
+      "title": "OOP & Modern Types",
+      "notebook": "notebooks/02-oop-and-modern-types.ipynb",
+      "defaultScene": "java-anatomy",
+      "sections": [
+        { "heading": "Classes — the unit of code",                  "scene": "java-anatomy", "spine": true,  "role": "hook" },
+        { "heading": "Encapsulation and visibility",                "scene": "java-anatomy", "spine": true,  "highlight": ["ja-bind-private", "ja-bind-final"], "focus": ["ja-init-row"] },
+        { "heading": "Constructors, `this`, and overloading",       "scene": "java-anatomy", "spine": true,  "highlight": ["ja-methods"], "focus": ["ja-verbs"] },
+        { "heading": "Inheritance with `extends`",                  "scene": "java-anatomy", "spine": true,  "highlight": ["ja-oop-animal", "ja-oop-mammal", "ja-oop-dog"], "focus": ["ja-model"] },
+        { "heading": "Polymorphism",                                "scene": "java-anatomy", "spine": true,  "highlight": ["ja-oop-mammal", "ja-oop-dog"], "focus": ["ja-model"] },
+        { "heading": "Abstract classes",                            "scene": "java-anatomy", "spine": false, "highlight": ["ja-oop-animal", "ja-abstract"], "focus": ["ja-model"] },
+        { "heading": "Interfaces",                                  "scene": "java-anatomy", "spine": true,  "highlight": ["ja-oop-walker", "ja-interface"], "focus": ["ja-model"] },
+        { "heading": "Default and static methods on interfaces",    "scene": "java-anatomy", "spine": false, "highlight": ["ja-oop-walker", "ja-methods"], "focus": ["ja-model"] },
+        { "heading": "Enums — a fixed set of constants",            "scene": "java-anatomy", "spine": true,  "highlight": ["ja-enum"], "focus": ["ja-type-oop"] },
+        { "heading": "Records — one-line immutable data classes",   "scene": "java-anatomy", "spine": true,  "highlight": ["ja-record"], "focus": ["ja-type-oop"] },
+        { "heading": "Sealed types — a closed family of subtypes",  "scene": "java-anatomy", "spine": true,  "highlight": ["ja-sealed"], "focus": ["ja-type-meta"] },
+        { "heading": "Pattern matching for `switch`",               "scene": "java-anatomy", "spine": true,  "highlight": ["ja-pattern", "ja-ctrl-switch"], "focus": ["ja-verbs"] },
+        { "heading": "You can also guard a pattern",                "scene": "java-anatomy", "spine": false, "highlight": ["ja-ctrl-guard", "ja-pat-match"], "focus": ["ja-verbs"] },
+        { "heading": "Built-in annotations",                        "scene": "java-anatomy", "spine": false }
+      ]
+    },
+    {
+      "id": "03-collections-and-generics",
+      "title": "Collections & Generics",
+      "notebook": "notebooks/03-collections-and-generics.ipynb",
+      "defaultScene": "java-anatomy",
+      "sections": [
+        { "heading": "The Collection hierarchy",                    "scene": "java-anatomy", "spine": true,  "role": "hook" },
+        { "heading": "`List` — ordered, indexed, allows duplicates","scene": "java-anatomy", "spine": true,  "highlight": ["ja-coll-list"], "focus": ["ja-type-coll"] },
+        { "heading": "`Set` — no duplicates",                       "scene": "java-anatomy", "spine": true,  "highlight": ["ja-coll-set"], "focus": ["ja-type-coll"] },
+        { "heading": "`Map` — key-to-value lookup",                 "scene": "java-anatomy", "spine": true,  "highlight": ["ja-coll-map"], "focus": ["ja-type-coll"] },
+        { "heading": "`Queue` and `Deque`",                         "scene": "java-anatomy", "spine": false, "highlight": ["ja-coll-deque"], "focus": ["ja-type-coll"] },
+        { "heading": "Immutable collection factories",              "scene": "java-anatomy", "spine": true,  "highlight": ["ja-value-collection", "ja-immutable"], "focus": ["ja-memory"] },
+        { "heading": "Iterating",                                   "scene": "java-anatomy", "spine": false, "highlight": ["ja-loop-foreach"], "focus": ["ja-loops"] },
+        { "heading": "Generics — what and why",                     "scene": "java-anatomy", "spine": true,  "highlight": ["ja-generic"], "focus": ["ja-type-meta"] },
+        { "heading": "Writing a generic class",                     "scene": "java-anatomy", "spine": false, "highlight": ["ja-generic", "ja-class"], "focus": ["ja-type"] },
+        { "heading": "Generic methods",                             "scene": "java-anatomy", "spine": false, "highlight": ["ja-generic", "ja-methods"], "focus": ["ja-verbs"] },
+        { "heading": "Bounded type parameters",                     "scene": "java-anatomy", "spine": true,  "highlight": ["ja-generic"], "focus": ["ja-type-meta"] },
+        { "heading": "Wildcards: `? extends T` and `? super T`",    "scene": "java-anatomy", "spine": true,  "highlight": ["ja-generic"], "focus": ["ja-type-meta"] },
+        { "heading": "PECS — Producer Extends, Consumer Super",     "scene": "java-anatomy", "spine": false, "highlight": ["ja-generic"], "focus": ["ja-type-meta"] },
+        { "heading": "Type erasure — what the JVM actually sees",   "scene": "java-jvm",     "spine": true,  "highlight": ["j-class-data", "j-class-file"], "focus": ["j-memory-area"] }
+      ]
+    },
+    {
+      "id": "04-functional-java-and-streams",
+      "title": "Functional Java & Streams",
+      "notebook": "notebooks/04-functional-java-and-streams.ipynb",
+      "defaultScene": "java-anatomy",
+      "sections": [
+        { "heading": "Lambdas — functions as values",              "scene": "java-anatomy", "spine": true,  "role": "hook" },
+        { "heading": "Method references",                          "scene": "java-anatomy", "spine": true,  "highlight": ["ja-fn-methodref"], "focus": ["ja-functions"] },
+        { "heading": "The four core functional interfaces",        "scene": "java-anatomy", "spine": true,  "highlight": ["ja-fn-iface"], "focus": ["ja-functions"] },
+        { "heading": "Writing your own functional interface",      "scene": "java-anatomy", "spine": false, "highlight": ["ja-fn-iface"], "focus": ["ja-functions"] },
+        { "heading": "Capturing variables — *effectively final*",  "scene": "java-anatomy", "spine": false, "highlight": ["ja-fn-lambda", "ja-bind-final"], "focus": ["ja-functions"] },
+        { "heading": "Streams — pipelines over collections",       "scene": "java-anatomy", "spine": true,  "highlight": ["ja-coll-ops"], "focus": ["ja-verbs"] },
+        { "heading": "Creating streams",                           "scene": "java-anatomy", "spine": false, "highlight": ["ja-coll-ops", "ja-coll-list"], "focus": ["ja-verbs"] },
+        { "heading": "Intermediate operations",                    "scene": "java-anatomy", "spine": true,  "highlight": ["ja-op-map", "ja-op-filter", "ja-op-flatmap"], "focus": ["ja-coll-ops"] },
+        { "heading": "Terminal operations",                        "scene": "java-anatomy", "spine": true,  "highlight": ["ja-op-reduce", "ja-op-collect"], "focus": ["ja-coll-ops"] },
+        { "heading": "Collectors",                                 "scene": "java-anatomy", "spine": true,  "highlight": ["ja-op-collect", "ja-op-groupby"], "focus": ["ja-coll-ops"] },
+        { "heading": "Parallel streams",                           "scene": "java-anatomy", "spine": false, "highlight": ["ja-coll-ops"], "focus": ["ja-coll-ops"] },
+        { "heading": "`Optional<T>` — the type-safe alternative to `null`", "scene": "java-anatomy", "spine": true,  "highlight": ["ja-optional", "ja-typed-failure"], "focus": ["ja-type-meta"] },
+        { "heading": "Streams + Optional together",                "scene": "java-anatomy", "spine": false, "highlight": ["ja-coll-ops", "ja-optional"], "focus": ["ja-verbs"] }
+      ]
+    },
+    {
+      "id": "05-errors-files-and-io",
+      "title": "Errors, Files & I/O",
+      "notebook": "notebooks/05-errors-files-and-io.ipynb",
+      "defaultScene": "java-anatomy",
+      "sections": [
+        { "heading": "Why exceptions",                             "scene": "java-anatomy", "spine": true,  "role": "hook" },
+        { "heading": "The `Throwable` hierarchy",                  "scene": "java-anatomy", "spine": true,  "highlight": ["ja-oop-animal", "ja-oop-mammal", "ja-oop-dog"], "focus": ["ja-model"] },
+        { "heading": "Checked vs unchecked — the rule",            "scene": "java-anatomy", "spine": true,  "highlight": ["ja-typed-failure"], "focus": ["ja-results"] },
+        { "heading": "`try` / `catch` / `finally`",                "scene": "java-anatomy", "spine": true,  "highlight": ["ja-control"], "focus": ["ja-verbs"] },
+        { "heading": "Throwing exceptions",                        "scene": "java-anatomy", "spine": false, "highlight": ["ja-typed-failure"], "focus": ["ja-results"] },
+        { "heading": "Custom exception types",                     "scene": "java-anatomy", "spine": false, "highlight": ["ja-model", "ja-typed-failure"], "focus": ["ja-model"] },
+        { "heading": "Exception chaining — the `cause`",           "scene": "java-anatomy", "spine": false, "highlight": ["ja-typed-failure"], "focus": ["ja-results"] },
+        { "heading": "`try-with-resources` — safe cleanup",        "scene": "java-anatomy", "spine": true,  "highlight": ["ja-control", "ja-effects"], "focus": ["ja-verbs"] },
+        { "heading": "The NIO `Path` — modern filesystem paths",   "scene": "java-anatomy", "spine": true,  "highlight": ["ja-effects"], "focus": ["ja-results"] },
+        { "heading": "`Files` — reading and writing",              "scene": "java-anatomy", "spine": true,  "highlight": ["ja-effects"], "focus": ["ja-results"] },
+        { "heading": "Directory operations",                       "scene": "java-anatomy", "spine": false, "highlight": ["ja-effects"], "focus": ["ja-results"] },
+        { "heading": "Serialization — a brief note",              "scene": "java-anatomy", "spine": false, "highlight": ["ja-effects", "ja-heap"], "focus": ["ja-memory"] }
+      ]
+    },
+    {
+      "id": "06-concurrency-and-virtual-threads",
+      "title": "Concurrency & Virtual Threads",
+      "notebook": "notebooks/06-concurrency-and-virtual-threads.ipynb",
+      "defaultScene": "java-jvm",
+      "sections": [
+        { "heading": "What is a thread?",                          "scene": "java-jvm", "spine": true,  "role": "hook" },
+        { "heading": "Raw threads with the `Thread` class",        "scene": "java-jvm", "spine": true,  "highlight": ["j-thread-1-stack"], "focus": ["j-jvm-stack-area"] },
+        { "heading": "`Runnable` vs `Callable<V>`",                "scene": "java-jvm", "spine": false, "highlight": ["j-thread-1-stack", "j-thread-n-stack"], "focus": ["j-jvm-stack-area"] },
+        { "heading": "`ExecutorService` — pooled task execution",  "scene": "java-jvm", "spine": true,  "highlight": ["j-jvm-stack-area"], "focus": ["j-jvm-stack-area"] },
+        { "heading": "`Future<V>` — a placeholder for a future result", "scene": "java-jvm", "spine": false, "highlight": ["j-thread-n-stack"], "focus": ["j-jvm-stack-area"] },
+        { "heading": "Virtual threads — Java 21's big shift",      "scene": "java-jvm", "spine": true,  "highlight": ["j-jvm-stack-area", "j-thread-n-stack"], "focus": ["j-jvm-stack-area"] },
+        { "heading": "`CompletableFuture` — composable async",     "scene": "java-jvm", "spine": false, "highlight": ["j-jvm-stack-area"], "focus": ["j-jvm-stack-area"] },
+        { "heading": "Structured concurrency",                     "scene": "java-jvm", "spine": true,  "highlight": ["j-jvm-stack-area"], "focus": ["j-jvm-stack-area"] },
+        { "heading": "The shared-mutable-state problem",           "scene": "java-jvm", "spine": true,  "highlight": ["j-heap-area", "j-object-data"], "focus": ["j-memory-area"] },
+        { "heading": "`synchronized` — intrinsic locks",           "scene": "java-jvm", "spine": true,  "highlight": ["j-object-data"], "focus": ["j-heap-area"] },
+        { "heading": "`ReentrantLock` — explicit locks",           "scene": "java-jvm", "spine": false, "highlight": ["j-object-data"], "focus": ["j-heap-area"] },
+        { "heading": "Atomic variables — lock-free for simple state", "scene": "java-jvm", "spine": false, "highlight": ["j-object-data"], "focus": ["j-heap-area"] },
+        { "heading": "Concurrent collections",                     "scene": "java-jvm", "spine": false, "highlight": ["j-heap-area"], "focus": ["j-memory-area"] },
+        { "heading": "`volatile` and the JVM memory model — in one paragraph", "scene": "java-jvm", "spine": true,  "highlight": ["j-memory-area", "j-heap-area"], "focus": ["j-memory-area"] }
+      ]
+    },
+    {
+      "id": "07-jvm-reflection-build-and-testing",
+      "title": "JVM, Reflection, Build & Testing",
+      "notebook": "notebooks/07-jvm-reflection-build-and-testing.ipynb",
+      "defaultScene": "java-jvm",
+      "sections": [
+        { "heading": "The JVM — what's actually running",          "scene": "java-jvm", "spine": true,  "role": "hook" },
+        { "heading": "Garbage collection in one breath",          "scene": "java-jvm", "spine": true,  "highlight": ["j-gc", "j-heap-area", "j-object-data"], "focus": ["j-bottom"] },
+        { "heading": "Class loading",                             "scene": "java-jvm", "spine": true,  "highlight": ["j-classloader-subsystem"], "focus": ["j-classloader-subsystem"] },
+        { "heading": "Java modules — the 60-second tour",         "scene": "java-jvm", "spine": false, "highlight": ["j-classloader-subsystem", "j-application-cl"], "focus": ["j-classloader-subsystem"] },
+        { "heading": "Annotations — revisited and extended",      "scene": "java-jvm", "spine": false, "highlight": ["j-class-data"], "focus": ["j-memory-area"] },
+        { "heading": "Reflection — looking at code as data",      "scene": "java-jvm", "spine": true,  "highlight": ["j-class-data", "j-method-area"], "focus": ["j-memory-area"] },
+        { "heading": "Reading annotations via reflection — the Spring bridge", "scene": "java-jvm", "spine": true,  "highlight": ["j-class-data"], "focus": ["j-memory-area"] },
+        { "heading": "Maven — the dominant build tool",           "scene": "java-jvm", "spine": true,  "highlight": ["j-source-code", "javac", "j-class-file"], "focus": ["j-pipeline"] },
+        { "heading": "Gradle — the script-based alternative",     "scene": "java-jvm", "spine": false, "highlight": ["j-source-code", "javac"], "focus": ["j-pipeline"] },
+        { "heading": "JUnit 5 — the modern test framework",       "scene": "java-jvm", "spine": true,  "highlight": ["j-source-code"], "focus": ["j-pipeline"] },
+        { "heading": "Parameterised tests",                       "scene": "java-jvm", "spine": false, "highlight": ["j-source-code"], "focus": ["j-pipeline"] },
+        { "heading": "Mockito — testing in isolation",            "scene": "java-jvm", "spine": false, "highlight": ["j-object-data"], "focus": ["j-heap-area"] }
+      ]
+    }
+  ]
+}

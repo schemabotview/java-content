@@ -1,0 +1,11 @@
+What is Java.
+
+Java is a statically typed, class based, object oriented language that compiles to bytecode and runs on the java virtual machine. That single sentence is dense, so let us unpack it.
+
+Statically typed means every variable has a type that the compiler knows at compile time. If you try to add a string and an integer, the compiler stops you before the program ever runs. This is the opposite of Python, where the same mistake only blows up at runtime when the offending line actually executes.
+
+Class based and object oriented means code lives inside classes. The class is the unit of encapsulation, of inheritance, and even of the file system layout. One public class per file, and the file name has to match the class name. Java pushes you toward classes hard, in a way that Scala and Python do not.
+
+Compiles to bytecode and runs on the java virtual machine means the Java compiler does not produce machine code for your laptop's processor. It produces a portable instruction set called java virtual machine bytecode. Any java virtual machine on any operating system can then load that bytecode and execute it. This is the origin of Java's famous old slogan, write once, run anywhere.
+
+Java was created by James Gosling and his team at Sun Microsystems in 1995. Four traits define modern Java in one breath. It is statically typed, so type mismatches are caught at compile time. It is class based and object oriented. It is memory managed, which means the java virtual machine's garbage collector reclaims unreachable objects for you. You never call free. And it is backwards compatible to a fault. Code written in 1998 still compiles and runs on Java 21 with very few exceptions. The Java ecosystem rewards stability above all else.

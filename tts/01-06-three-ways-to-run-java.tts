@@ -1,0 +1,9 @@
+Three ways to run Java.
+
+Java gives you three on ramps for running code. Pick the one that matches the size of what you are doing.
+
+The first on ramp is the interactive shell, called jshell. The jshell tool is for the question, what does this expression do. It is the cheapest possible feedback loop. You type an expression. Java evaluates it. Java echoes back the result. You think. You type the next expression. The jshell tool is where you build intuition.
+
+The second on ramp is jbang. The jbang tool is for a single Java file you want to keep around. You write your code in a file called something dot java. You add a shebang line and a Java version comment at the top of the file, and you run the file directly with jbang. If your script needs a library, you add a special comment declaring the dependency, and jbang fetches it for you. This is the perfect tool for personal scripts and small experiments.
+
+The third on ramp is Maven, or its cousin Gradle. Maven is for anything that has more than one file, or that you want to build, test, and deploy seriously. Maven is also what every Spring project uses. It manages dependencies, runs your tests, compiles incrementally as you save files, and packages your application into a jar archive you can deploy.

@@ -1,0 +1,5 @@
+The keyword var, and local type inference.
+
+Since Java ten, you can skip the type on a local variable declaration and let the compiler infer it from the right hand side. The keyword is var. This is purely a syntactic convenience. Java is still statically typed underneath, and the inferred type is fixed at compile time. The variable var name equals, in quotes, ganesh, becomes a string. The variable var scores equals new int array of ninety, eighty five, seventy eight, becomes an int array. The keyword var is only allowed on local variables, and only when there is an initializer on the right hand side. You cannot write var x with no initializer. You cannot write var y equals null, because null does not have an inferable type. And you cannot use var on fields of a class.
+
+Use var when the type is obvious from the right hand side and adds nothing to readability. Spell the type out when the right hand side is a method call whose return type is non obvious. The compiler does not care. Future you, reading the file, will care.

@@ -1,0 +1,5 @@
+The java virtual machine context.
+
+Let us spend a minute on what happens when you run a Java program. When you write a Java source file, the compiler is called javac. The compiler turns your source code into java virtual machine bytecode. The bytecode is portable. The java virtual machine then loads the bytecode, executes it, garbage collects unused memory, and uses its just in time compiler to optimize the hot paths in your program as it runs.
+
+Two consequences are worth absorbing now. The first is that startup is not instant. The java virtual machine itself takes a moment to boot. For tiny one off scripts this feels slow. For long running services it disappears into the noise. The second consequence is that you inherit the java virtual machine's strengths. A mature garbage collector. A just in time compiler that actually gets faster the longer your program runs. And decades of mature profiling and observability tools.

@@ -1,0 +1,7 @@
+Why Java in 2026.
+
+There are three reasons people pick this language today. The first is enterprise ubiquity. Banks, telecoms, governments, and large e commerce platforms run on Java. The largest backends in the world are Java backends. The hiring market is enormous, and is unlikely to shrink for a long time.
+
+The second reason is the Spring ecosystem. Spring, and especially Spring Boot, are the dominant backend framework on the java virtual machine. Most production microservices you will ever read are Spring services. Notebooks 08 through 12 in this track are entirely about Spring, so we are pointing toward that goal from the very first lesson.
+
+The third reason is performance and tooling. The java virtual machine has a mature garbage collector. It has a just in time compiler that watches your program run and rewrites the hot paths into optimized machine code. And it has the best profiling and observability tools on any platform, with things like jstack, jmap, java flight recorder, and async profiler all built around it.

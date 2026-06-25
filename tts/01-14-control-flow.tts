@@ -1,0 +1,5 @@
+Control flow statements.
+
+Java's control flow statements are the C family with a few modern additions. The if, else if, and else statement is the classic conditional. The while loop and the do while loop are the pre and post test loops. The for loop comes in two forms. The classic three clause for, with initializer, condition, and update, gives you precise index control. The enhanced for loop, sometimes called the for each loop, lets you iterate over any iterable or array with the syntax for, paren, var element, colon collection, close paren. The switch statement and the switch expression handle multi way branching. And break and continue control loop flow.
+
+The switch expression form, introduced in Java fourteen, is the modern way to use switch. You write switch on a value, then for each case use an arrow followed by the expression to return. You can group multiple labels with commas. You can use a default arm. The whole construct evaluates to a value you can assign. This is closer to Scala's pattern matching, and it is what you should reach for in new code.

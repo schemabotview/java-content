@@ -1,0 +1,5 @@
+Modern Java, not 1998 Java.
+
+A short word on language versions. This track targets Java 21, the current long term support release. Java has evolved enormously since the late nineties, and a lot of older tutorials still teach the 1998 dialect. We will write modern Java throughout. Five features you will use constantly that did not exist in old Java. The keyword var, which lets you skip the type on a local variable and have the compiler infer it. Text blocks, which are triple quoted multi line string literals. Records, which give you one line immutable data classes. Pattern matching for switch, which lets switch act as an expression that destructures values. And virtual threads, which let you run millions of cheap threads on the same java virtual machine.
+
+If you ever land on a Stack Overflow answer where someone defines a class just to hold three fields with getters and setters, that is old Java. The shape of the problem is the same. Modern Java solves it in one line with a record.
