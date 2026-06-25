@@ -71,9 +71,9 @@ from that prose, anchored to the notebook's `## ` headings.
 
 ## Status
 
-- **Modules 01–07 (core Java)** scene-wired in `manifest.json` (scene/spine/highlight/
-  focus/role per section). Module 01 also narrated (17 `.tts` + `audio` refs); 02–07
-  wired but not yet narrated. `.wav`s pending Colab.
+- **Modules 01–07 (core Java)** scene-wired AND narrated in `manifest.json`
+  (scene/spine/highlight/focus/role + per-section `audio`). 96 `tts/*.tts` scripts,
+  1:1 with the manifest `audio` stems. `.wav`s pending Colab.
 - **Modules 08–12 (Spring)** are notebooks only — unwired; they need dedicated Spring
   scenes (the two existing scenes are Java-language/JVM maps).
 - Not yet pushed; not yet in the app catalog (`catalog.ts`).
