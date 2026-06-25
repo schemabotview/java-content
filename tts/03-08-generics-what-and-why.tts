@@ -1,0 +1,7 @@
+Generics — what and why.
+
+Notice that every collection above was declared with an angle bracket type, like List angle bracket String, or Map angle bracket String comma Integer. That angle bracket type is the generic type parameter. It is a placeholder filled in at each use site.
+
+Generics give you two things at once. First, compile time type safety. The compiler stops you from adding an Integer to a List of String. Second, no casting at retrieval. The names dot get method already returns String, not the raw Object that you would then have to cast.
+
+Before generics, in Java one point four and earlier, collections held raw Object references. Every retrieval needed an explicit cast, and the cast could fail at runtime with a class cast exception. Generics turn that runtime error into a compile time error. This is a huge ergonomic and safety win.

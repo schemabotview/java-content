@@ -1,0 +1,3 @@
+Generic methods.
+
+A method can also declare its own type parameter, independent of its enclosing class. The type parameter goes before the return type. So you write public static, angle bracket T, then T, then the method name. Inside the method, T refers to whatever type the caller substituted. The compiler infers it from the argument types at the call site. Generic methods are how you write reusable utility code, like a method that returns the first element of a list, or a method that inverts a map by swapping keys and values.

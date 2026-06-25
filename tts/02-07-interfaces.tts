@@ -1,0 +1,7 @@
+Interfaces.
+
+An interface is a pure contract. A set of method signatures with no fields and no state. Any class can implement any number of interfaces, and the compiler enforces that the implementing class provides every method the interface declares.
+
+The keyword to implement an interface is implements. You can write a single class that implements many interfaces. So while a class can extend only one other class, it can implement many interfaces. This is how Java gives you a controlled form of multiple inheritance. You inherit behaviour contracts from many interfaces, but you inherit state and implementation from at most one superclass.
+
+Two key contrasts between interfaces and abstract classes. First, a class can implement many interfaces but extend only one class. Second, an interface holds no instance state. No instance fields, other than constants. No constructor. It is a behavioural contract, not a partial implementation.

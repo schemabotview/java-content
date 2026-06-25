@@ -1,0 +1,3 @@
+Sets — no duplicates.
+
+A set holds elements with no duplicates. Adding a value that is already present is a no operation. The set stays the same size. The three set implementations differ in iteration order. Hash set is the default. Operations are constant time on average, and the iteration order is unspecified. You should not rely on it. Linked hash set has the same big O performance as hash set, but it iterates in insertion order. Use it when you want duplicate removal that preserves the order elements first appeared. Tree set keeps the elements in sorted order at all times. Operations are logarithmic time. Use it when you need a sorted set.

@@ -1,0 +1,5 @@
+Encapsulation and visibility.
+
+Java has four access levels that control who can see each field and method. The keyword public means visible from anywhere. The keyword protected means visible from the same package and from any subclass. No modifier at all means visible only from the same package, which we call package private. And the keyword private means visible only from inside the same class.
+
+The standard practice in Java is private fields and public methods. The class owns its data. The outside world interacts through methods. This pattern is the original meaning of the word encapsulation. The class hides its internal representation behind a small public surface. Hiding data behind methods is what lets you change the internal representation later, say switching from a long number of cents to a big decimal, without breaking every caller in your codebase. Without this discipline, every change to the inside of a class ripples out into the entire system.

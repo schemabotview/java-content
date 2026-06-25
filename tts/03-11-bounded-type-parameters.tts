@@ -1,0 +1,3 @@
+Bounded type parameters.
+
+Sometimes you need a guarantee that the type parameter is a subtype of something specific. For example, you might want T to be any number type, so that you can call doubleValue on it. The syntax for that is bounded type parameters. You write angle bracket T extends Number. Now T can be Integer, Long, Double, or any other subclass of Number, but it cannot be String, because String is not a number. You can chain bounds with the ampersand operator. Angle bracket T extends Number ampersand Comparable of T means T must be both a Number and Comparable to itself.

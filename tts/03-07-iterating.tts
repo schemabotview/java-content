@@ -1,0 +1,5 @@
+Iterating.
+
+The enhanced for loop, often called the for each loop, is the idiomatic way to iterate any iterable. That includes every collection above and plain arrays. You write for, open paren, var name, colon collection, close paren, then the loop body. The loop variable is bound to each element in turn.
+
+There is one subtle rule. You cannot modify a collection during an enhanced for loop over it. Doing so throws a concurrent modification exception at runtime. If you need to remove elements during iteration, use the explicit iterator object. Call the iterator method on the collection, then use hasNext and next to walk the collection, and call the iterator's remove method to safely remove the current element. If you need the index, fall back to the classic for loop with an integer counter.

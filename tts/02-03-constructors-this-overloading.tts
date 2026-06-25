@@ -1,0 +1,7 @@
+Constructors, this, and overloading.
+
+One small but important keyword. The keyword this. Inside a method or constructor, this is the implicit reference to the current instance. You use this dot x to mean the field x of this instance. You use it most often when a constructor parameter name shadows a field name. If your constructor takes a parameter called x, and your field is also called x, then this dot x equals x means assign the parameter to the field.
+
+A class can have multiple constructors. Same name, different parameter lists. One constructor can delegate to another with the call this open paren, arguments, close paren. This is how you provide convenient defaults without duplicating logic. For example, a Rectangle class might have one constructor that takes width and height, and a second convenience constructor that takes just one number, side, and delegates to the primary constructor with side and side as both arguments. That gives you a square shortcut without having to write the assignment logic twice.
+
+Method overloading works the same way. Multiple methods can share the same name as long as their parameter lists differ. The compiler picks the right method at the call site based on the argument types. Overloading is purely a compile time mechanism. It is not the same as overriding, which we are about to meet.

@@ -1,0 +1,5 @@
+Default and static methods on interfaces.
+
+Since Java eight, interfaces can carry concrete methods too. A default method is a method on the interface that has a body. Every implementing class inherits this default method for free, but the implementer is allowed to override it if they want. The keyword default goes before the return type. A static method on an interface is a utility method that belongs to the interface itself. You call it as Greeter dot friendly, not on an instance.
+
+Default methods are how the java util Collection and Stream application programming interfaces were extended in Java eight without breaking every existing implementation. They are also why an interface with a single abstract method, sometimes called a functional interface, can be implemented by a lambda. You will see plenty of that pattern in notebook four.

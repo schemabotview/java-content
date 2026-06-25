@@ -1,0 +1,3 @@
+Queue and Deque.
+
+For queue and stack workloads, the right implementation in almost every case is array deque. Array deque implements both queue and deque, and it is faster than linked list for both use cases. There is also a class called Stack in the java util package, but that is a legacy synchronised class from the very first version of Java. Do not use it. Use array deque with the push, pop, and peek methods instead.

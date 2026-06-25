@@ -1,0 +1,7 @@
+Pattern matching for switch.
+
+Modern Java's switch can do more than match constants. It can match types, and it can destructure records, all in one place. The syntax is case followed by a type pattern, followed by the arrow, followed by the expression to return. If the type pattern includes the record components, like case Circle open paren double r close paren arrow, then the components are pulled out of the record into local names you can use in the right hand side.
+
+When you combine sealed types with pattern matching, you get exhaustiveness checking. The compiler knows the complete set of subtypes of a sealed type. It can verify that your switch covers every one of them. If you add a fourth shape later, every switch on Shape becomes a compile error until you update it. This is enormously valuable for refactoring. You change the type, and the compiler tells you exactly which call sites need to be updated.
+
+The combination of sealed types, records, and pattern matching is Java's answer to what other languages call algebraic data types. Scala has them. Rust has them. Kotlin has them. Now Java has them too. They let you model a closed family of variants with very little code, and they let the compiler help you handle every variant correctly.

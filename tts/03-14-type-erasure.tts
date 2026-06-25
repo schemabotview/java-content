@@ -1,0 +1,7 @@
+Type erasure — what the java virtual machine actually sees.
+
+Java generics are a compile time feature. At runtime, the type parameter is gone. The java virtual machine sees List of String and List of Integer as the same raw List. The type parameter is erased during compilation, replaced with its bound, or with Object if there is no bound. This is called type erasure.
+
+Three practical consequences flow from erasure. First, you cannot write new T array of size ten. The java virtual machine does not know what T is at runtime, so it cannot allocate the array. Second, you cannot write instanceof List of String, because at runtime there is no parameterised list type. You write instanceof List of question mark, the unbounded wildcard, instead. Third, two methods that differ only in their type parameters compile to the same signature. So you cannot have one method that takes List of String and another that takes List of Integer with the same method name in the same class. The compiler sees them as duplicates.
+
+Erasure exists for backwards compatibility. Old code that uses raw List and new code that uses List of String are the same List at the java virtual machine level, so they interoperate. The trade is that generics carry no runtime type information.

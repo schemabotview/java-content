@@ -1,0 +1,9 @@
+Records — one-line immutable data classes.
+
+A huge fraction of classes in real codebases are data carriers. A fixed set of fields. A constructor that assigns them. Accessors that read them. Plus the equals method, the hashCode method, and the toString method. That is dozens of lines of boilerplate for a class that holds three values. In old Java you wrote all of that by hand, or used a code generation library like Lombok to hide it.
+
+Java sixteen introduced records. The keyword is record. You write public record User open paren, the components in order, close paren, open brace, close brace. That is the whole class. The compiler generates everything for you. A canonical constructor that takes the components in declaration order. One accessor per component, named the same as the component. Note that the accessor is just email, not get email. Modern Java drops the get prefix for record components. The equals method, derived from all components. The hashCode method, derived from all components. The toString method, which lists every component with its value.
+
+All record fields are final, which means once an instance is created, you cannot reassign the components. Records are immutable by construction. This makes them safe to share across threads, safe to use as map keys, and easy to reason about.
+
+Records are not just dumb data bags. You can add methods. You can override the accessors. You can implement interfaces. And you can validate the components in a compact constructor. The compact constructor is a special syntax. You write public Money open brace, then your validation code, then close brace. The implicit field assignment runs after your block. So you can check that the amount in cents is not negative, or that the currency string is exactly three letters, and throw an illegal argument exception if not. Records are not just for data classes. They are for any small, immutable, value oriented type that pairs a few components together.

@@ -1,0 +1,7 @@
+Classes — the unit of code.
+
+In Java, almost everything lives inside a class. A class is a blueprint. It declares what data an object holds, which we call fields, and what an object can do, which we call methods. You then create objects, also called instances, from the class using the keyword new.
+
+Think of it this way. The class Point describes the shape of a two dimensional point. It says every point has an integer x coordinate and an integer y coordinate, and that every point knows how to compute its distance from the origin. The class itself is not a point. It is the recipe for points. When you write new Point of three comma four, you get an actual instance of Point, one whose x is three and whose y is four. You can create as many instances as you like. They share the recipe but they each carry their own data.
+
+A class definition has three main ingredients. Fields, declared inside the class body but outside any method, are the data each instance holds. The constructor is a special block that runs once when you create an object with the keyword new. It has the same name as the class and no return type. It is where you assign the incoming arguments to the fields. And methods are the behaviour the instance can perform. They live alongside the fields and can read or modify them.

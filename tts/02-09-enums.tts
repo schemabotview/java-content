@@ -1,0 +1,7 @@
+Enums — a fixed set of constants.
+
+When a type has a small closed set of values, an enum is the right shape. Days of the week. http methods like get, post, put, delete. Payment statuses like pending, paid, refunded. You declare an enum with the keyword enum and list the constants inside braces. Each constant is a singleton instance of the enum type. There is exactly one HttpMethod dot POST in the entire program, no matter how many times you reference it.
+
+Enums work beautifully with switch. You can write a switch expression on an enum value, with one arm per constant, and the compiler will warn you if you miss a case. The Java enum type also gives you two helper methods for free. The static values method returns an array of all the constants, in declaration order. The static value of method takes a string and returns the matching constant, or throws if no match is found.
+
+Java enums are more powerful than the integer flag enums you might know from C or older languages. Java enums can carry fields, can have a constructor, and can have methods. So an HttpStatus enum can store both the numeric code and a description for each constant. You list the constructor arguments next to each constant declaration. OK opens with two hundred and the string ok. NOT FOUND opens with four hundred four and the string not found. Behind the scenes, each enum constant is a full instance of the enum class, complete with its own field values.

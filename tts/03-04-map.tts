@@ -1,0 +1,7 @@
+Maps — key to value lookup.
+
+A map stores key value pairs. Maps follow the same three way pattern as sets. The hash map is the default, with constant time operations on average and unspecified iteration order. The linked hash map preserves insertion order. The tree map keeps the keys sorted at all times.
+
+The map interface has the operations you would expect. The put method assigns a value to a key. The get method looks up a value by key. The getOrDefault method returns a fallback value if the key is absent. The containsKey method checks for the key. Iterate over a map by calling key set, values, or entry set. The entry set gives you an iterable of map entries, each with a getKey method and a getValue method.
+
+A few modern map helpers worth knowing. The put if absent method puts a value only if the key is not already present. The merge method takes a key, a default value, and a remapping function, and either inserts the default or applies the function to the existing value. The compute if absent method takes a key and a function, and if the key is absent, applies the function to compute the value to insert. These three methods replace a lot of get null check put code.

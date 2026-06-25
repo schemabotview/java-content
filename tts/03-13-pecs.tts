@@ -1,0 +1,3 @@
+PECS — producer extends, consumer super.
+
+The mnemonic for which wildcard to use was coined by Joshua Bloch in his book Effective Java. It is the acronym PECS, which stands for producer extends, consumer super. If a parameter produces values for you to consume, declare it question mark extends T. If a parameter consumes values that you provide, declare it question mark super T. If it does both, leave it as plain T with no wildcard. This is exactly the rule the java development kit uses. For example, look at Collections dot copy. The destination list consumes values, so it is List of question mark super T. The source list produces values, so it is List of question mark extends T.

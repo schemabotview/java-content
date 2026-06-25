@@ -1,0 +1,5 @@
+Built-in annotations.
+
+An annotation is metadata you attach to a class, method, field, or parameter. The compiler and various libraries read annotations to change behaviour or generate code. You will use annotations constantly once we reach Spring, where every important Spring concept, like component, autowired, rest controller, and request mapping, is encoded as an annotation.
+
+Three annotations ship with the java development kit itself, and you should learn them now. The annotation at sign Override declares that the annotated method overrides a superclass or interface method. The compiler verifies the claim. If the signature drifts, you get a compile error. Always use it. The annotation at sign Deprecated marks a class, method, or field as obsolete. Callers see a compiler warning. You can also pass arguments to deprecated, like since equals two point zero and for removal equals true, to give callers more information. And the annotation at sign Suppress Warnings tells the compiler to silence a specific warning category for the annotated element. Use it sparingly, only when you have a real reason to override the compiler's warning.

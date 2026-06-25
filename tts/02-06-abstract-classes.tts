@@ -1,0 +1,5 @@
+Abstract classes.
+
+Sometimes a base class can describe part of the shape but cannot meaningfully implement every method. Only its subclasses can fill in the gaps. In that case, you declare the class with the keyword abstract, and you also declare the unfinished methods as abstract. An abstract method has no body. Just a signature followed by a semicolon. You cannot instantiate an abstract class directly. The compiler will reject new of an abstract class.
+
+A typical example is a Shape class with an abstract method area. The shape itself cannot compute its area in general. Only specific shapes can. So Circle extends Shape and implements area as pi times radius squared. Square extends Shape and implements area as side times side. The Shape class can still have concrete methods, like a describe method that calls area and embeds it in a string. Those concrete methods are shared by all subclasses. Abstract classes are the right tool when you have shared state, or shared partial implementation, across a family of types. When you only have shared behaviour contracts, with no state to share, interfaces are usually a better fit.

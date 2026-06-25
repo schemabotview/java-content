@@ -1,0 +1,5 @@
+Immutable collection factories.
+
+Since Java nine, every collection interface has static factory methods called of that return immutable instances. The static method List dot of returns an immutable list. The static method Set dot of returns an immutable set. The static method Map dot of returns an immutable map. These are the right shape for constants, configuration, and any collection you do not intend to modify. They are structurally immutable, so any attempt to add, remove, or replace throws an unsupported operation exception. They are also safe to share across threads, and they make defensive copying unnecessary.
+
+There is one practical detail. The Map dot of method is only overloaded up to ten entries. For larger immutable maps, use Map dot ofEntries, which takes any number of Map dot entry instances.

@@ -1,0 +1,5 @@
+Writing a generic class.
+
+You can declare your own generic types. The syntax is to list type parameters in angle brackets after the class name. So a class Box of T has a single type parameter T. Inside the class body, you use T anywhere you would use a normal type. The field has type T. The constructor parameter has type T. The accessor returns T. When you instantiate, you pick a concrete type. New Box of Integer holds Integer. New Box of String holds String.
+
+The diamond operator, which is just angle bracket angle bracket with nothing between, lets the compiler infer the type from context. If you write Box angle bracket Double pi Box equals new Box diamond of three point one four, the compiler infers Double from the variable declaration.
