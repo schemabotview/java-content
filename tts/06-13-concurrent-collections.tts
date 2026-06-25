@@ -1,0 +1,9 @@
+Concurrent collections.
+
+The plain Hash Map and Array List from the collections framework are not thread safe. Concurrent modification of either gives undefined behaviour, often a Concurrent Modification Exception, but sometimes silent corruption. The package java util concurrent supplies thread safe replacements designed for high contention.
+
+Concurrent Hash Map is the thread safe replacement for Hash Map. It uses fine grained locking internally, so different keys can be updated by different threads in parallel. It is also the right place to store concurrent counters, using the compute If Absent method to lazily insert an Atomic Integer per key, and then increment and get on the value.
+
+Copy On Write Array List is a thread safe list that copies the underlying array on every write. It is appropriate when the read to write ratio is heavily skewed toward reads, because reads are lock free, but writes are linear in the size of the list.
+
+Blocking Queue is the producer consumer hand off primitive. The put method on a blocking queue blocks if the queue is full. The take method blocks if the queue is empty. The two together let one or more producer threads feed work to one or more consumer threads without explicit synchronisation. Linked Blocking Queue is the standard implementation. Array Blocking Queue is the bounded variant. Concurrent Linked Queue is a lock free first in first out queue. Use it when you need an unbounded concurrent queue with non blocking semantics.

@@ -1,0 +1,5 @@
+Custom exception types.
+
+When none of the standard exception types communicates enough, write your own. The convention is to extend Runtime Exception for an unchecked exception, or to extend Exception for a checked one. Provide constructors that accept a message string and an optional cause. The cause is another throwable that explains why this exception was raised.
+
+For a domain example, an Insufficient Funds Exception might extend Runtime Exception, hold the requested amount and the available balance as fields, and produce a clean error message in the super call. Throwing it gives you a domain specific signal that any layer in the stack can catch. The fields let the caller introspect the exception programmatically, not just read its message.

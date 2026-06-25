@@ -1,0 +1,3 @@
+Runnable versus Callable.
+
+The two task shapes in modern Java are Runnable and Callable of V. Both represent a task to run on some thread, but they differ in what they return. Runnable's single method is called run. It returns void. It cannot throw checked exceptions. Callable of V's single method is called call. It returns a V. It can throw any exception, including checked ones. Use Runnable for fire and forget side effects, like writing to a log. Use Callable of V for tasks that compute a result you want to use, and that might fail with a checked exception.

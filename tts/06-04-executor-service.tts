@@ -1,0 +1,7 @@
+Executor Service — pooled task execution.
+
+An Executor Service is a managed pool of worker threads that you submit tasks to. The pool owns the threads. You just hand it work. This is the right abstraction for almost every concurrent workload you write in modern Java.
+
+The Executors utility class is a factory of common pool shapes. The new Fixed Thread Pool method gives you a pool with a fixed number of threads, and queues excess tasks. The new Cached Thread Pool method gives you a pool that grows as needed and reuses idle threads. Do not use the cached pool for hostile or unbounded workloads, because it can spawn an unbounded number of threads. The new Single Thread Executor gives you exactly one worker, and tasks run sequentially through it. And the new Virtual Thread Per Task Executor, added in Java twenty one, spawns a fresh virtual thread per submitted task, with no thread sharing.
+
+Always use try with resources around an executor service, or call shutdown explicitly. As of Java nineteen, Executor Service implements Auto Closeable. The close method waits for in flight tasks to complete and then shuts down the pool. If you forget this and the pool is still alive, its threads are non daemon by default, which prevents the java virtual machine from exiting cleanly.

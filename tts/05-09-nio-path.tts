@@ -1,0 +1,5 @@
+The new input output Path — modern filesystem paths.
+
+The Path type, in the package java nio file, is the modern replacement for the old File class. A Path is an immutable abstract representation of a filesystem path. Important. It does not mean the path exists on disk. It is just the name of a location. Construction is via the static factory Path dot of, which takes either a full path string, or several string components that get joined with the platform separator.
+
+Once you have a Path, you can ask pure questions about it without touching the disk. The get File Name method returns the last segment. The get Parent method returns everything before the last segment. The get Root method returns the root, like the forward slash on unix. The is Absolute method tells you whether the path is absolute or relative. The resolve method joins a Path with another component, treating it as a child. The relativize method computes the relative path from one Path to another. None of these methods touch the filesystem.

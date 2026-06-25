@@ -1,0 +1,7 @@
+Capturing variables — effectively final.
+
+A lambda can reference local variables from the enclosing method, but only if those variables are effectively final. Effectively final means assigned exactly once and never reassigned. The compiler will reject a lambda that reads a variable you reassign later in the method, and it will reject a lambda that tries to assign to a captured variable inside its own body.
+
+This restriction exists because lambdas can outlive the method that created them. Imagine you pass a lambda to an executor that runs it on another thread, then the original method returns. At that moment, the local variables of the original method are gone. The lambda kept a snapshot of the captured values at capture time. Allowing reassignment would create confusing, hard to debug inconsistencies between what the original method sees and what the lambda sees.
+
+The standard workaround, when you really do need a mutable captured value, is to use a single element array. The array reference itself is effectively final. Mutating its contents is fine. So var counter equals new int array of zero, then a lambda that does counter zero plus plus, compiles and works.

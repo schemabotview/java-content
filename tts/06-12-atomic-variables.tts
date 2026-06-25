@@ -1,0 +1,5 @@
+Atomic variables — lock free for simple state.
+
+For a single value updated concurrently, the package java util concurrent atomic provides classes that are faster than any lock. The atomic classes use central processing unit level compare and swap instructions and never block. The most common are Atomic Integer, Atomic Long, Atomic Boolean, and Atomic Reference, the generic atomic wrapper for any reference type.
+
+The atomic classes give you methods like increment and get, decrement and get, add and get, compare and set, update and get with a unary operator, and accumulate and get with a binary operator. Each of these executes atomically with respect to other threads, so there is no race.

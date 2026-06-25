@@ -1,0 +1,5 @@
+Raw threads with the Thread class.
+
+The lowest level way to start a thread in Java is to construct a Thread instance with a Runnable body, and call its start method. Do not confuse start with run. Start launches a new operating system thread that runs the body. Run executes the body on the current thread, which is almost never what you want. After you call start, you can call join on the thread to wait for it to finish.
+
+You should almost never write new Thread in real Java code. There are several reasons. Creating an operating system thread is expensive. Each platform thread typically reserves about one megabyte of stack memory, plus kernel resources, and there is overhead for the operating system scheduler. There is no built in way to limit concurrency, so a loop that spawns threads can exhaust the operating system. There is no convenient way to get a result back from a Runnable, because run returns void. And there is no built in lifecycle management. You have to handle interruption, errors, and cleanup yourself. Use an Executor Service instead, which we will get to in a moment.

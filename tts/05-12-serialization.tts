@@ -1,0 +1,9 @@
+Serialization — a brief note.
+
+Java's built in serialization mechanism turns an object graph into bytes you can write to a file, or send over a socket, and then restore back into objects. The mechanism is opt in via the Serializable marker interface. A marker interface is one with no methods. You just declare implements Serializable, and your class is eligible for serialization.
+
+There are a few details. Every Serializable class should declare a static final long called serial Version UID. This is a version number that the runtime uses to detect when the class has changed in a way that breaks compatibility with serialized data. The transient keyword marks fields that should be skipped during serialization, for fields like passwords or cached values that should not be persisted. The write Object and read Object methods on Object Output Stream and Object Input Stream do the actual work.
+
+Now the warning, not the recommendation. Java's built in serialization is convenient, but it has serious problems. It has been a recurring source of security vulnerabilities, because deserializing untrusted data can execute arbitrary code. It tightly couples your class structure to its wire format, which makes refactoring painful. And the java development kit team is actively working to replace it.
+
+For real persistence and inter service communication, prefer a structured format. JSON, using libraries like Jackson or Gson. YAML for configuration. Protocol Buffers or Avro for high performance binary serialization. We will use Jackson extensively once we reach Spring, where every rest controller maps to JSON automatically. Treat Serializable as legacy knowledge. You need to recognise it in old code, but you should rarely add it to new code.

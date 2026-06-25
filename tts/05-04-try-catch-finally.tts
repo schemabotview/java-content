@@ -1,0 +1,9 @@
+Try, catch, and finally.
+
+The try, catch, finally statement is the construct that handles exceptions. The try block wraps the code that might throw. Each catch block handles a specific exception type. The optional finally block runs no matter what. Exception or not, return or not. The finally block is the classic place to release a resource, although try with resources, which we will see in a moment, is the modern replacement for that pattern.
+
+Order matters in catch blocks. The java virtual machine picks the first catch block whose declared type matches the thrown exception. If you write catch of Exception before catch of Number Format Exception, the more specific block would never run, because every Number Format Exception is also an Exception. The compiler will reject this ordering. Always go from most specific to most general.
+
+Multi catch lets you handle several exception types in one catch block, when the handling logic is the same for all of them. The syntax is catch, open paren, type one, vertical bar, type two, close paren, the variable name, then the body. The vertical bar separator means or. The variable inside the catch block has the closest common supertype, so you can only call methods that exist on that supertype.
+
+A common mistake worth flagging now. Avoid catching the bare Exception type just to make code compile. That swallows real bugs alongside the failure you meant to handle. Catch the specific type you are prepared to recover from, and let the rest propagate up to a higher level where someone is.

@@ -1,0 +1,9 @@
+Gradle — the script based alternative.
+
+Gradle is the alternative build tool. Gradle uses Groovy or Kotlin as a domain specific language, instead of x m l. The build script lives in a file called build dot gradle, or build dot gradle dot kts for the Kotlin variant. Gradle is faster than Maven on incremental builds, because it caches task outputs aggressively. Gradle is also more flexible, because the build script is a real programming language, so you can express logic that would be cumbersome in declarative x m l. Gradle is the build tool that Spring Boot's own initializr defaults to today.
+
+Common Gradle commands. The gradlew build command compiles, tests, and packages. The gradlew test command runs the tests. The gradlew boot run command, when the Spring Boot plugin is applied, runs the Spring Boot application directly. The gradlew clean command deletes the build directory. And the gradlew dependencies command shows the dependency graph.
+
+The gradlew script is the Gradle wrapper. A small shim committed alongside your project that downloads the exact Gradle version the project expects. Maven has an equivalent, called the Maven wrapper, invoked as m v n w. Always commit the wrapper script. Never expect contributors to have the right version of the build tool installed globally on their machines.
+
+Maven versus Gradle, in one line. Maven is simpler and standard. Gradle is faster and more flexible. New Spring projects increasingly start with Gradle. Older codebases are almost always Maven.

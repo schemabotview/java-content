@@ -1,0 +1,7 @@
+Lambdas — functions as values.
+
+A lambda expression is a short inline function you can pass around like any other value. Before Java eight, the way to pass behaviour to a method was an anonymous inner class. You typed new of some interface name, with the override of the single abstract method written out by hand. That was about five lines of ceremony for one expression of actual logic. Lambdas reduce all of that to one line.
+
+The lambda syntax is parameters, arrow, body. The arrow is a hyphen followed by a greater than sign. If your lambda takes no parameters, you write empty parentheses on the left of the arrow. If it takes one parameter, the parentheses around the parameter are optional. If it takes multiple parameters, the parentheses are required. The parameter types are inferred from the context by default, but you are allowed to write them explicitly if you want. The body of the lambda is either a single expression, in which case its value is returned automatically, or a block in braces, in which case you need an explicit return statement for non void lambdas.
+
+The compiler treats a lambda as a value of some functional interface type. A functional interface is any interface with exactly one abstract method. The compiler infers which interface from the surrounding context. If you assign a lambda to a variable of type Comparator of String, the compiler reads Comparator's single abstract method, sees that it takes two strings and returns an int, and binds the lambda accordingly.

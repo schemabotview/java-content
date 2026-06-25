@@ -1,0 +1,7 @@
+Method references.
+
+When a lambda does nothing but call an existing method, you can replace it with a method reference. A method reference is the double colon shorthand. It comes in four flavours.
+
+Class colon colon static method is a reference to a static method on a class. So Integer colon colon parse int is a function that takes a string and returns the result of calling Integer dot parseInt on it. Instance colon colon instance method is a reference to a method on a specific instance. So the variable prefix dot concat, written as prefix colon colon concat, is a function that takes a string and returns prefix concatenated with that string. Class colon colon instance method is the most subtle one. It refers to an instance method, but uses the receiver as the first argument. So String colon colon length is a function that takes a String and returns its length. And finally, Class colon colon new is a constructor reference. ArrayList colon colon new is a supplier that produces a new ArrayList on demand.
+
+Method references are not faster than the equivalent lambda. They are just shorter and often clearer. Use them when the lambda body is nothing more than forwarding to a single method.

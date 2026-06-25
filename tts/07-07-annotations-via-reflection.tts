@@ -1,0 +1,7 @@
+Reading annotations via reflection — the Spring bridge.
+
+This is the punchline of the whole session. Reading annotations via reflection is the pattern that powers essentially every Spring feature. The technique uses two application programming interface calls. From a Class object, call get Annotation, passing the Class of the annotation type. If the annotation is present on the class, you get the annotation instance back, and you can read its attribute values. If it is not present, you get null.
+
+For method level annotations, you iterate the declared methods with get Declared Methods, and on each method, call get Annotation with the Class of the annotation type. Same pattern. If present, read its values. If absent, null.
+
+That two step pattern is the seed of Spring. Spring's component scanner does exactly this. It walks the classpath looking for class files. For each one, it calls Class dot for Name to load the class. It calls get Annotation on the resulting Class object, looking for at sign Component, at sign Service, at sign Repository, at sign Controller, or at sign Configuration. When it finds one, it instantiates the class using reflection, wires up its at sign Autowired fields by looking at their types via reflection, and registers the resulting object in the application context. Spring is not magic. It is Class dot for Name, get Annotation, and new Instance, organised at scale.

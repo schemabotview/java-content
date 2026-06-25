@@ -1,0 +1,13 @@
+Virtual threads — Java twenty one's big shift.
+
+Until Java twenty one, every Java thread was what we now call a platform thread. A platform thread is a thin wrapper around an operating system thread. Operating system threads are expensive. Around one megabyte of stack memory each. Significant kernel scheduling overhead. About ten thousand of them in flight on a real machine before things start to fall apart. This is why thread pools existed at all. You could not afford to give every concurrent task its own platform thread.
+
+Virtual threads change this. A virtual thread is a java virtual machine managed alternative to a platform thread. It is lightweight, measured in kilobytes rather than megabytes. The java virtual machine multiplexes many virtual threads onto a small pool of platform threads, which we call carriers. When a virtual thread blocks on input output, like a database call or a network read, the java virtual machine parks the virtual thread and the carrier moves on to run another virtual thread that is ready. When the input output completes, the parked virtual thread is woken up and continues on whichever carrier is available.
+
+The practical effect is that you can have millions of concurrent virtual threads waiting on the network. Code that previously needed a non blocking framework like Netty, or a reactive library like Project Reactor, or async await gymnastics, can now just be written as plain, blocking, one thread per request code. And it scales. A web server with a virtual thread per request can handle hundreds of thousands of concurrent connections on commodity hardware, with no thread pool tuning required.
+
+When to use virtual threads. Input output bound work. Hypertext transfer protocol servers. Database calls. Network clients. Anything that spends most of its time waiting. This is exactly the workload virtual threads were designed for.
+
+When to use platform threads. CPU bound work. A virtual thread that never blocks just pins its carrier to itself and offers no benefit over a platform thread. For raw computation, a fixed thread pool sized to the CPU count is still the right answer.
+
+One important thing not to do. Avoid the synchronized keyword on hot paths inside virtual threads. The synchronized keyword pins the virtual thread to its carrier for the duration of the synchronized block. While pinned, no other virtual thread can use that carrier, which defeats the lightweight model. Use Reentrant Lock instead, which we will see shortly. Reentrant Lock does not pin.

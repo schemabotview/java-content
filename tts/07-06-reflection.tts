@@ -1,0 +1,15 @@
+Reflection — looking at code as data.
+
+The reflection application programming interface lets your code, at runtime, inspect classes, methods, fields, constructors, and annotations, and invoke them. Everything in reflection starts from a Class object, of type Class of question mark, the wildcard Class type. You can get a Class object three ways.
+
+One. From an instance. Call get Class on any object, and you get back the Class object for its runtime type. Two. From a class literal. Write the class name, then dot class. So String dot class is the Class object for String. Three. From a name. Call Class dot for Name with the fully qualified class name as a string. This is what frameworks use when they discover class names dynamically from the classpath.
+
+Once you have a Class object, you can ask questions about it. The get Name method returns the fully qualified name. The get Simple Name method returns just the last segment. The get Package Name method returns the package. The is Interface method tells you whether it is an interface. The get Super class method returns the Class of the direct superclass. The get Interfaces method returns the array of interfaces it implements.
+
+From a Class object, you can also list and invoke members. The get Declared Methods method returns the array of methods declared directly on the class, ignoring inherited ones. The get Methods method, without declared, returns all public methods including inherited ones. The get Declared Method method, singular, takes a name and a list of parameter types, and returns the matching method.
+
+To invoke a method via reflection, you call the invoke method on the Method object. The first argument is the instance on which to call the method, or null for a static method. The remaining arguments are the method's actual arguments. The invoke method returns the result as Object, which you can cast.
+
+To create an instance of a class via reflection, you find the constructor with get Declared Constructor, then call new Instance on the constructor object. Reading and writing fields works similarly. The get Declared Field method takes a name and returns a Field object. To read or write a private field, you have to call set Accessible with true on the field, which bypasses Java's normal access control. Then call get on the field to read, or set on the field to write.
+
+Reflection has costs. Reflective calls are slower than direct calls. They bypass compile time type checking, so errors that the compiler would have caught become runtime errors. Reach for reflection only when you need to operate on code that you do not know about until runtime. Framework code processing user supplied classes. A serialiser inspecting fields. A test runner discovering test methods. Not every day application logic.

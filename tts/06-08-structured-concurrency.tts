@@ -1,0 +1,5 @@
+Structured concurrency.
+
+Completable Future is powerful but easy to misuse. Orphaned tasks. Leaked threads. Errors that get lost in the chain. The next step in Java's concurrency story, currently in preview, is called structured concurrency. Structured concurrency treats a group of concurrent tasks as a single block. The tasks share a lifetime. Errors propagate up to the parent block. And the block cannot exit until every child has either finished or been cancelled. The shape echoes try with resources.
+
+The structured model gives you three guarantees that the unstructured model did not. Tasks never outlive the block that started them. Errors never get swallowed. Cancellation propagates automatically. Treat structured concurrency as the future direction of concurrent Java. Once it is out of preview, you should prefer it over hand rolled Completable Future graphs for most use cases.

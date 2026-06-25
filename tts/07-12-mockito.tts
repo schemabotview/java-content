@@ -1,0 +1,7 @@
+Mockito — testing in isolation.
+
+When the code under test depends on something heavy, like a database, a remote service, or the system clock, you do not want the test to actually need that dependency. Mockito lets you substitute a fake implementation that returns whatever you tell it to, and lets you assert which methods on it got called.
+
+The Mockito vocabulary. The static mock method takes a Class and returns a mock instance of that type. All methods on a mock return defaults, namely null, zero, or false, until you stub them. The static when method, combined with then Return, defines what a stubbed call returns. The static when method combined with then Throw defines an exception to throw. The static verify method, applied to a mock, asserts that a specific call was made. The verify method can be combined with never, times of n, or at Least Once to assert call counts. The static any method, and its typed variants like any Long and any String, are argument matchers that match any value of the given type. The static eq method wraps an exact value as an argument matcher, which is needed when mixing matchers with literals.
+
+Mockito works by generating a subclass of the mocked type at runtime, and intercepting every method call to record arguments and produce stubbed responses. Yet another use of reflection, under the hood. The combination of JUnit five plus Mockito plus AssertJ is the test stack you will see in essentially every modern Spring project.

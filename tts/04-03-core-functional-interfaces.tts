@@ -1,0 +1,7 @@
+The four core functional interfaces.
+
+The java util function package ships about forty functional interfaces, but four of them cover the vast majority of real code. Memorise the shape of each one, because they show up in every Stream operation.
+
+Function of T comma R is the transformation shape. Its abstract method is apply, which takes a T and returns an R. Use it when you transform a value into another value. Predicate of T is the testing shape. Its abstract method is test, which takes a T and returns a boolean. Use it for filtering and matching. Consumer of T is the side effect shape. Its abstract method is accept, which takes a T and returns void. Use it when you do something with a value but produce no result, like printing or logging. Supplier of T is the production shape. Its abstract method is get, which takes nothing and returns a T. Use it for lazy computation of a default, or for factory style construction.
+
+Two argument variants exist for the same shapes. BiFunction of T comma U comma R takes two arguments and returns a result. BiPredicate of T comma U takes two arguments and returns a boolean. BiConsumer of T comma U takes two arguments and returns void. There are also primitive specialised variants, like Int Function and Int Predicate, that avoid boxing when you are working with int, long, or double values. Use the primitive variants in hot loops.

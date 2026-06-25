@@ -1,0 +1,5 @@
+The Throwable hierarchy.
+
+Every exception in Java extends the class Throwable. Throwable has two big branches. The first branch is Error. An Error is a fatal java virtual machine level problem. Out of memory error. Stack overflow error. You do not catch these. You cannot meaningfully recover from them. The second branch is Exception. Exception itself, and most of its subclasses, are recoverable conditions that application code might reasonably handle.
+
+Inside Exception, there is one specially marked subtree. Runtime Exception, and all its descendants. The runtime exception subtree gets special treatment from the compiler. Everything outside it, but still inside Exception, is what we call a checked exception. Everything inside Runtime Exception is unchecked.

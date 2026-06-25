@@ -1,0 +1,7 @@
+Streams — pipelines over collections.
+
+A stream is a one time use pipeline that pulls elements through a chain of operations. It is not a collection. It does not store the elements. It is a description of work to do, applied lazily when a terminal operation kicks off the pipeline.
+
+Every stream pipeline has three stages. The source is where the elements come from. Usually that is collection dot stream. The intermediate operations are the middle stages, like filter, map, and sorted. Each intermediate operation returns a new stream and does nothing until a terminal operation runs. Intermediate operations are lazy. The terminal operation is the final stage. It triggers the pipeline, pulls every element through, and produces a result or a side effect. Terminal operations are eager.
+
+A stream can be traversed exactly once. After a terminal operation runs, the stream is spent. Any further operation on the same stream throws an illegal state exception. This is different from a Python iterator, which works the same way, but different from a Scala collection, which you can iterate multiple times. If you need to iterate multiple times, hold the collection and call stream on it each time.

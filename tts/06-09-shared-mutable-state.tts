@@ -1,0 +1,5 @@
+The shared mutable state problem.
+
+When two threads touch the same field without coordination, you get data races. A data race is an interleaving of operations that produces wrong results. Sometimes the wrong results show up deterministically. Sometimes they show up only one time in a million runs. The classic example is the increment operator. The expression value plus plus looks like one operation, but it compiles to three. Read the current value. Add one. Write the new value back. Two threads can both read the same value, both write back the same incremented number, and one update is silently lost. This is the canonical race condition.
+
+There are three ways to fix shared mutable state, in increasing sophistication. Synchronization. Explicit locks. And atomic variables.

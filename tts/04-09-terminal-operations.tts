@@ -1,0 +1,5 @@
+Terminal operations.
+
+Terminal operations trigger the pipeline and produce a result. The to list method, added in Java sixteen, is the modern way to collect a stream to an unmodifiable list. The collect method takes a collector, which we will get to in a moment. The count method returns a long with the number of elements. The for each method runs a consumer on every element, for side effects. The reduce method folds the stream to a single value, given an identity and a binary operator. The any match, all match, and none match methods take a predicate and return a boolean, short circuiting as soon as the answer is known. The find first and find any methods return an Optional of the first or any element that survives the pipeline. The min and max methods take a comparator and return an Optional of the smallest or largest element.
+
+Notice that min, max, find first, find any, and reduce without an identity all return Optional. The reason is that the stream might be empty, in which case there is no answer. Returning Optional forces the caller to handle the empty case explicitly, rather than getting back a default like zero, which would silently hide bugs.

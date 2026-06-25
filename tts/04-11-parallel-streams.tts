@@ -1,0 +1,5 @@
+Parallel streams.
+
+Parallel streams are a one keyword optimisation. Adding dot parallel after the source, or starting from collection dot parallel stream instead of collection dot stream, splits the work across the java virtual machine's common fork join pool. Each element is processed independently, and the framework merges the partial results at the end.
+
+Parallel streams pay off when three conditions hold. The dataset is large, typically more than ten thousand elements. The per element work is non trivial, not just incrementing a counter. And the operations are stateless and side effect free. Parallel streams hurt when the stream is small, when the collection has poor split characteristics like a linked list, or when the lambdas mutate shared state, which gives you race conditions. The rule of thumb is to default to sequential streams, and switch to parallel only after profiling tells you the work is worth parallelising.

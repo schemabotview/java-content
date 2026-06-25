@@ -1,0 +1,7 @@
+Maven — the dominant build tool.
+
+Almost every Spring project you encounter uses one of two build tools. Maven or Gradle. Maven is older, more declarative, and more standardised. The project descriptor is a file called pom dot xml. The acronym pom stands for project object model. Inside the p o m, you declare the group identifier, the artifact identifier, and the version of your project. You declare properties, like the Java release version. You declare dependencies, with their group, artifact, version, and an optional scope like test, which marks a dependency as only needed for testing.
+
+Maven dependencies are resolved transitively from a remote repository, called Maven Central by default. You declare only the libraries you depend on directly. Maven pulls in everything those libraries depend on, recursively.
+
+Maven runs a fixed build lifecycle. Most daily work involves a handful of commands. The m v n compile command compiles your sources. The m v n test command compiles and runs the unit tests. The m v n package command compiles, runs tests, and builds the jar archive. The m v n install command additionally puts the artifact into your local Maven repository, under the dot m two directory in your home folder. The m v n clean command deletes the target directory. And the m v n dependency tree command shows the full transitive dependency graph, which is invaluable for debugging dependency conflicts.

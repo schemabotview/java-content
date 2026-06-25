@@ -1,0 +1,7 @@
+JUnit five — the modern test framework.
+
+JUnit five is the standard test runner for Java. A test class is a plain Java class. A test method is any method annotated at sign Test. The runner discovers test methods via reflection. The same mechanism we just covered.
+
+JUnit five also defines lifecycle hooks. The at sign Before Each annotation runs the method before every test. Useful for setting up a fresh instance under test. The at sign After Each annotation runs after every test, useful for cleanup. The at sign Before All annotation runs once before any test in the class. The at sign After All annotation runs once after all tests. The before all and after all hooks must be on static methods.
+
+The assertions you will use ninety percent of the time. The assert Equals method takes an expected value and an actual value. The assert True and assert False methods take a boolean. The assert Null and assert Not Null methods take a reference. The assert Throws method takes the expected exception class and a runnable, runs the runnable, and asserts that it throws the expected exception, returning the exception instance for further inspection. The assert All method lets you group multiple checks, so all of them are evaluated even if one fails. For more expressive assertions, reach for the assert That style provided by the third party library AssertJ.

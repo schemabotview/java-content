@@ -1,0 +1,5 @@
+Synchronized — intrinsic locks.
+
+The simplest fix is the synchronized keyword. Every Java object has what is called an intrinsic lock. The synchronized keyword takes that lock for the duration of a block or method. Only one thread at a time can hold a given lock. Others block until the holder releases it. You can mark an entire method as synchronized, which locks the receiver, the this reference. Or you can use a synchronized block, which locks a specific object that you supply.
+
+Synchronized is simple and built into the language, but it has limits. There is no timeout. There is no try lock. There is no fairness control. And critically for virtual threads, synchronized pins the virtual thread to its carrier, so it should be avoided on the hot path of virtual thread code.

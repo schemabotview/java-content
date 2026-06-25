@@ -1,0 +1,3 @@
+Exception chaining — the cause.
+
+When you catch one exception and throw another, you should pass the original as the cause. This preserves the full chain in the stack trace, which is invaluable for debugging. The pattern is, catch the lower level exception, like io exception, then throw a higher level domain exception with super of message comma cause. When you later log the chained exception, the stack trace shows both layers. You see the application level meaning. You also see the original root cause, printed under Caused by. This is the difference between a useful production log and a useless one.

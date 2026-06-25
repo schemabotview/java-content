@@ -1,0 +1,7 @@
+Reentrant Lock — explicit locks.
+
+For everything synchronized cannot do, reach for Reentrant Lock from the package java util concurrent locks. The semantics are the same. One holder at a time. But you get additional capabilities. The try lock method attempts to acquire the lock without blocking. The try lock with timeout method gives up after the timeout. The lock Interruptibly method releases the lock if the current thread is interrupted. And Reentrant Lock does not pin virtual threads, which makes it the right choice for virtual thread code.
+
+The pattern for using Reentrant Lock is critical to get right. Call lock to acquire. Then immediately enter a try block. Do your work. Then in a finally block, call unlock. The finally ensures the lock is released even if the work throws an exception. Always release in a finally block.
+
+There is also a Read Write Lock. It splits the lock into a read lock, which many threads can hold simultaneously, and a write lock, which only one thread can hold at a time. Use it for data structures where reads dominate writes, like a cache that is hit often but updated occasionally.

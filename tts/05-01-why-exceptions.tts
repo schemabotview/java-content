@@ -1,0 +1,5 @@
+Why exceptions.
+
+Things go wrong in real programs. A file does not exist. The network drops. A user supplies a string where you expected a number. A database connection times out. Java's answer to all of these situations is the exception mechanism. An exception is a value that propagates up the call stack until something catches it, abandoning the normal return path along the way.
+
+The alternative to exceptions is to return a special sentinel value from the failing method. Minus one means failure. Null means missing. Zero means error. The problem with sentinels is that they quietly force every caller to remember to check. If you forget the check, the bad value just flows through your program and corrupts something downstream. Exceptions invert this default. You opt out of failure handling by letting the exception propagate naturally up to a caller who is prepared to deal with it. You opt in to failure handling by catching the exception in a try block.

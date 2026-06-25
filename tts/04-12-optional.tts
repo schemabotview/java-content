@@ -1,0 +1,13 @@
+Optional — the type safe alternative to null.
+
+Tony Hoare, who invented the null reference in nineteen sixty five, famously called it his billion dollar mistake. Null is a value that compiles as any reference type, but crashes the moment you dereference it. Java still has null, because it cannot remove it for backwards compatibility, but for return values that might legitimately be absent, modern Java uses Optional of T.
+
+An Optional of T is a small wrapper that either holds a value or is empty. The compiler forces you to acknowledge the empty case before reaching the inner value.
+
+Creating an Optional has three forms. Optional dot of takes a non null value and wraps it. If you pass null to Optional dot of, it throws a null pointer exception. Optional dot of nullable takes a possibly null value, and either wraps it or returns an empty Optional. Optional dot empty returns the canonical empty Optional.
+
+Reading an Optional has many methods. The is present method returns a boolean. The get method returns the inner value, but throws if the Optional is empty, so you should almost never call get directly. The if present method takes a consumer and runs it only if the value is present. The or else method returns the inner value, or a default if empty. The or else get method does the same, but takes a supplier for the default, which is evaluated lazily. The or else throw method returns the inner value, or throws an exception you supply.
+
+The map, filter, and flat map methods let you transform inside the Optional without ever unwrapping it. Map applies a function to the inner value, returning a new Optional. Filter applies a predicate, returning the Optional unchanged if it matches, or empty otherwise. Flat map is for when your function returns an Optional itself, and you want to avoid an Optional of Optional.
+
+The Optional contract is clear and worth memorising. Use Optional as a return type for values that may legitimately be absent. Do not use Optional for fields. Do not use Optional for method parameters. Do not use Optional inside collections. The convention exists because Optional is heavier than null, and the type system already handles those other cases. For an absent field, use a sensible default or null with a comment. For an optional parameter, use overloads. For an empty collection, return an empty list, not an Optional list.

@@ -1,0 +1,9 @@
+Files — reading and writing.
+
+The Files utility class, also in java nio file, is your one stop shop for actual filesystem input output. It operates on Path values. The high level methods cover ninety percent of real use. The exists method checks whether the path exists on disk. The is Directory method checks whether it is a directory. The size method returns the file size in bytes. The get Last Modified Time method returns the modification timestamp.
+
+For reading text files, the read String method returns the whole file as a string. The read All Lines method returns a list of strings, one per line. For writing text, the write String method takes a Path and a string, and either creates or truncates the file. The write method with a list of strings writes each on its own line.
+
+For huge files, do not use read String or read All Lines, because they load everything into memory at once. Use the lines method instead, which returns a Stream of strings, lazily. The stream pulls one line at a time. Wrap the call in try with resources, because the stream holds an open file handle that needs to be closed.
+
+For binary files, the read All Bytes method returns the file contents as a byte array. The write method with a byte array writes the bytes back out. Both methods are appropriate for small to medium binary files. For huge binary files, use the lower level new Input Stream and new Output Stream methods, which give you streaming access without loading everything at once.

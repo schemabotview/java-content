@@ -1,0 +1,3 @@
+Collectors.
+
+For more flexible aggregation, the Collectors utility class provides ready made collectors. The to list collector produces a list. The to set collector produces a set. The to map collector takes a key extractor and a value extractor and produces a map. The grouping by collector takes a classifier function and produces a map from key to list of elements, like a structured query language group by. The partitioning by collector takes a predicate and produces a map from boolean to list, splitting the stream into two buckets. The joining collector concatenates the stream into a single string, optionally with a delimiter, a prefix, and a suffix. And the counting collector counts elements within a group, often used as the downstream collector for grouping by.

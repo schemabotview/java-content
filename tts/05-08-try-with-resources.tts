@@ -1,0 +1,7 @@
+Try with resources — safe cleanup.
+
+This is one of Java's most important small features. Before Java seven, releasing a resource like a file handle, an input stream, or a database connection, required a try finally dance with a null check inside. The pattern was long, easy to get wrong, and silently broken when the close call itself threw.
+
+Try with resources, introduced in Java seven, makes resource cleanup a one liner. Any class that implements the Auto Closeable interface can go in parentheses after the try keyword. The java virtual machine guarantees that the resource's close method is called when the block exits, whether by normal completion, an explicit return, or an exception. Multiple resources can be declared in the same try, separated by semicolons. They close in reverse declaration order, just like local variables would clean up in reverse construction order.
+
+The Auto Closeable interface has a single method called close. Any class you write can implement it whenever it holds something that needs cleanup. A database connection. A file handle. A network socket. Once you implement Auto Closeable, your class slots seamlessly into try with resources blocks. The pattern is so common that modern Java code rarely uses a hand written finally for cleanup anymore.

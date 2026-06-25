@@ -1,0 +1,7 @@
+Java modules — the sixty second tour.
+
+Java nine introduced the module system, sometimes called J P M S. A module is a named bundle of packages that explicitly declares which packages it exports and which other modules it requires. A module is described by a file called module dash info dot java, placed at the root of the module's source.
+
+Inside the module info, the requires keyword declares a dependency on another module. The exports keyword declares that a package is visible to consumers. Packages that are not exported are module private. They cannot be referenced from outside the module, even if they are public in the older sense.
+
+Most application code, especially Spring Boot services, does not use the module system directly. Spring Boot still ships as classpath jar files. The module system matters mainly in three places. When you are building a library that wants strong encapsulation against its users. When you are using the j link tool to ship a slimmed down java runtime environment containing only the modules your application uses. And when you are maintaining the java development kit itself. For day to day Spring work, treat the module system as background knowledge.

@@ -1,0 +1,11 @@
+The java virtual machine — what's actually running.
+
+When you launch a Java program with the java command, the java virtual machine starts up and creates a fixed set of runtime memory regions. The three you should know are the heap, the per thread stacks, and the metaspace.
+
+The heap is where every Java object lives. The heap is shared across all threads, and it is managed by the garbage collector. Whenever you write new, somewhere in your code, the resulting object is allocated on the heap.
+
+The stack is one per thread. Each thread has its own stack. The stack holds local variables, method parameters, and the call chain. Every method call pushes a new stack frame, which holds that method's locals and a return address. When the method returns, its frame is popped, and the locals are gone. The stack is small, typically half a megabyte, which is why deeply recursive code throws stack overflow error.
+
+The metaspace holds class metadata. The bytecode for each method. The tables of methods and fields. The class objects themselves, which we will meet in a moment when we get to reflection. Metaspace replaced the older permanent generation, or perm gen, in Java eight. Unlike perm gen, metaspace grows dynamically by default, so the old class metadata out of memory error is largely a thing of the past.
+
+One distinction worth registering now. Primitives declared as local variables live on the stack, inline. Objects, including the boxed wrappers like Integer, always live on the heap. The local variable on the stack just holds a reference, essentially a pointer, to the heap object.

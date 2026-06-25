@@ -1,0 +1,3 @@
+Creating streams.
+
+There are several ways to create a stream. The most common is collection dot stream, which produces a stream from any collection. The Stream dot of static method takes a varargs of elements and returns a stream over them. The Int Stream dot range method gives you a numeric stream from a start, inclusive, to an end, exclusive. The Int Stream dot range Closed method makes the end inclusive instead. For infinite streams, the Stream dot iterate method takes a seed and a unary operator, and produces an unbounded stream. The Stream dot generate method takes a supplier and produces an unbounded stream by calling the supplier on demand. Infinite streams must be bounded with limit before a terminal operation, or the pipeline will never finish.

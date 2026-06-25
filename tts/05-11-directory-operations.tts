@@ -1,0 +1,9 @@
+Directory operations.
+
+Directory operations follow the same shape. The create Directories method creates a directory and any missing parents, like the unix command mkdir minus p. The create Directory method creates a single directory and fails if it already exists, or if a parent is missing.
+
+To list the contents of a directory at one level, call Files dot list. This returns a Stream of Paths for the immediate children. Wrap it in try with resources, because the stream holds the directory handle open. To walk a directory tree recursively, call Files dot walk. This returns a Stream of every Path in the tree, depth first. To search a tree for files matching some condition, call Files dot find with a maximum depth and a bi predicate that takes the Path and its attributes and returns a boolean. Find is essentially walk plus filter, optimised so the predicate runs during traversal.
+
+For copying and moving, the copy method takes a source Path, a destination Path, and optional copy options like Standard Copy Option dot Replace Existing. The move method has the same signature. Both throw if the source does not exist, or if the destination exists and you did not pass Replace Existing. For deletion, the delete method removes a Path, and throws if the path does not exist. The delete If Exists method is the safe variant. It returns a boolean indicating whether something was actually deleted.
+
+One critical reminder. Every Stream returned by Files dot list, Files dot walk, Files dot find, and Files dot lines holds an open file handle underneath. Always wrap them in try with resources. Otherwise you leak file descriptors, and on long running processes, this is the kind of slow leak that takes down production servers in the middle of the night.

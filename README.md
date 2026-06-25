@@ -60,9 +60,10 @@ Notebooks are copied as-is from the runnable curriculum at `~/Projects/java`.
   mapped to `java-jvm` (runtime topics) or `java-anatomy` (language topics) with
   `spine`/`highlight`/`focus`/`role`. The "What's next" outro of each is intentionally
   unwired.
-- **Module 01** also has its per-section narration written (`tts/01-*.tts`, with
-  `audio` refs). Modules 02–07 are wired but **not yet narrated** (no `tts`/`audio`).
-- The per-section `.wav`s still need a Colab generation pass.
+- **Modules 01–07 are fully narrated** — 96 per-section `tts/*.tts` scripts, each
+  wired to a matching `audio/*.wav` stem in the manifest (the notebook overview +
+  "What's next" outro dropped per section).
+- The per-section `.wav`s still need a Colab generation pass (`tts/` → `audio/`).
 - **Modules 08–12 (Spring)** are notebooks only — not wired, because the two scenes
   are Java-language/JVM maps and don't model Spring; those modules need their own
   scenes first.

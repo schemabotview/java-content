@@ -1,0 +1,5 @@
+Intermediate operations.
+
+Intermediate operations transform one stream into another, and they are lazy. The most important ones are filter, which takes a predicate and keeps only the elements that match. Map, which takes a function and transforms every element. Flat map, which takes a function from element to stream, and flattens the resulting stream of streams into one stream. Distinct, which removes duplicates by equality. Sorted, with no arguments for natural order, or with a comparator for custom order. Limit, which takes the first n elements. Skip, which drops the first n elements. And peek, which lets you observe each element without modifying it, useful for debugging only, never for production logic.
+
+Flat map deserves a moment of attention. If you have a stream of strings, where each string is a sentence, and you call map of split by space, you get a stream of arrays of strings. That is not what you wanted. If you call flat map of array dot stream of split by space, the inner arrays get flattened, and you get a single stream of words. Flat map is map followed by flatten.

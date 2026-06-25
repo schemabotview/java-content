@@ -1,0 +1,7 @@
+Class loading.
+
+A class file on disk is not useful to the java virtual machine until a class loader reads it and makes it available as a Class object. Three class loaders work in delegation. The bootstrap loader, which is the lowest level loader, handles the core java development kit classes, like everything in java dot lang and java dot util. The platform loader handles the rest of the java development kit modules. The application loader handles your application's classpath. And you can write custom loaders on top, which is what frameworks and application servers do.
+
+Class loading is lazy. A class is loaded the first time it is referenced in the running program. This laziness is exactly why Spring's classpath scanning works the way it does. Spring walks every class file it can find on the classpath, asks the loader to load each one, and then uses reflection to look at the result.
+
+You almost never write a custom class loader. But the delegation chain explains a class of bugs you might encounter. When two different class loaders load the same class file, the java virtual machine treats the resulting classes as different types. A cast between them throws class cast exception, even though the names match exactly. If you ever see this in a complex application server environment, you now know what is happening.

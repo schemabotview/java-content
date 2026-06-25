@@ -1,0 +1,5 @@
+Future — a placeholder for a future result.
+
+When you submit a Callable to an executor service, you get back a Future. A Future is a placeholder for the result of an asynchronous computation, possibly not ready yet. The main methods on Future are get, get with a timeout, cancel, and is done. The get method blocks until the result is ready, then returns it. Get can throw two checked exceptions. Interrupted Exception, if the current thread is interrupted while waiting. And Execution Exception, if the task itself threw an exception, in which case the wrapped cause is accessible via get Cause.
+
+Future is fine for submit and wait patterns. It does not compose well, however. There is no way to say with a Future, when this task finishes, do something else, without blocking a thread to wait. For composition we use Completable Future, which we will meet shortly.

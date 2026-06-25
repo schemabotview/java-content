@@ -1,0 +1,3 @@
+Streams and Optional together.
+
+Streams and Optional were designed to compose. Every stream terminal operation that might find nothing returns an Optional. Find first returns Optional of T. Find any returns Optional of T. Min and max return Optional of T. Reduce without an identity returns Optional of T. You can keep chaining map and filter inside the Optional, and only at the very end unwrap with or else, or else get, or else throw, or if present.

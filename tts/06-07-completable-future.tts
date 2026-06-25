@@ -1,0 +1,9 @@
+Completable Future — composable async.
+
+For composing chains of asynchronous work, the Completable Future type is the right tool. Future lets you wait for a result. Completable Future lets you chain what to do with it. The shape will be familiar from Promises in JavaScript, or Future in Scala.
+
+There are three main combinators on Completable Future. The then Apply method takes a function from T to R, and transforms the result. It is like Stream dot map. The then Compose method takes a function from T to Completable Future of R, and chains another asynchronous step. It is like Stream dot flat map. It flattens nested futures. The then Combine method takes another Completable Future and a bi function, waits for both to complete, and merges their results.
+
+Completable Future also has error handling combinators. The exceptionally method takes a function from throwable to T, and runs only if the future failed. It is the recovery branch. The handle method takes a bi function of value and error, and runs no matter what, so you can react to either outcome.
+
+For coordinating many futures, the all Of static method takes a varargs of completable futures and returns a Completable Future of Void that completes when all of them complete. The any Of static method completes as soon as any one of the input futures completes.

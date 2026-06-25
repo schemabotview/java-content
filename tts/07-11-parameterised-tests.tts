@@ -1,0 +1,3 @@
+Parameterised tests.
+
+When you want to run the same test logic across many inputs, parameterise the test. JUnit five supports several source forms. The at sign Value Source annotation supplies a list of literal values. The at sign C s v Source annotation supplies rows of comma separated values, mapped to the test method's parameters by position. The at sign Method Source annotation references a static method that returns a stream of arguments. Pick whichever fits your data.
